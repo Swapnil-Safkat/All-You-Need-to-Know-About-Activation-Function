@@ -1,4 +1,4 @@
-![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/fc1d80fa-e36b-48f1-9c0e-d39269055c3a)# All You Need to Know About Activation Function
+# All You Need to Know About Activation Function
 
 ## **Introduction**
 
@@ -28,12 +28,12 @@ An **activation function** in an artificial neural network determines the output
 
 #### *1. Linear Activation Function*
 
-##### **Formula** - f(x) = x
+##### **Formula** - linear(x) = x
 
 ##### **Advantages**
   - Most simple
   - Compitationally fast
-  - 
+    
 ##### **Disadvantages**
   - Unable to capture non-linearty in data
   - Poor performance
@@ -78,7 +78,7 @@ plot(linear,x,'linear')
 
 #### *2. Step Activation Function*
 
-##### **Formula** - f(x) = x
+##### **Formula** - step(x) = x
 
 ##### **Advantages**
   - Simple
@@ -104,9 +104,10 @@ plot(step,x,'step')
 #### *3. Sigmoid Activation Function*
 
 The sigmoid function, denoted as σ(x) or sig(x), is a special form of the logistic function.
-It maps any real-valued input x to an output in the range (0, 1)
+It maps any real-valued input x to an output in the range (0, 1).
+Generally used in output layer for classification.
 
-##### **Formula** - f(x) = 1/(1 + e^{-x})
+##### **Formula** - sigmoid(x) = 1/(1 + e^{-x})
  
 ##### **Advantages**
   - Simple
@@ -137,7 +138,7 @@ plot(sigmoid,x,'sigmoid')
 The tanh function is a scaled and shifted version of the hyperbolic tangent function.
 It maps any real value as input to an output in the range [-1, 1].
 
-##### **Formula** - f(x) = (e^{x} - e^{-x}) / (e^{x} + e^{-x})
+##### **Formula** - tanh(x) = (e^{x} - e^{-x}) / (e^{x} + e^{-x})
  
 ##### **Advantages**
   - Non-lineary
@@ -161,6 +162,97 @@ plot(tanh,x,'tanh')
 ```
 
 ![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/06516ed9-6dcb-4999-bdd1-7cafa2f929ba)
+
+#### *5. Relu(Rectified Linear Unit) Activation Function*
+
+ReLU is a non-linear activation function that outputs the input directly if it is positive, otherwise, it outputs zero.
+Generally used in hidden layers.
+
+##### **Formula** - relu(x) = max(0,x)
+ 
+##### **Advantages**
+  - Non-lineary
+  - Non-saturated in positive region
+  - Computationally inexpensive
+  - Convergence faster
+  - Sparsity
+  - Avoids vanishing gradient problem
+     
+##### **Disadvantages**
+  - Non differentiable in 0
+  - Non zero centerd
+  - Might cause dying relu problem
+    
+##### **Output**
+**Effect of Relu Activation Function***
+
+```
+def relu(x):
+    return max(0,x)
+x = np.linspace(-10, 10, 400)
+plot(relu,x,'relu')
+```
+
+![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/a17baba3-0c9a-4957-9155-a3843414415d)
+
+#### *6. Leaky Relu Activation Function*
+
+The Leaky ReLU (Rectified Linear Unit) is an improved version of the standard ReLU activation function.
+It introduces a small negative slope for negative input values, preventing neurons from becoming completely inactive.
+
+##### **Advantages**
+  - Non-lineary
+  - Non-saturated 
+  - Computationally inexpensive
+  - Avoids dying relu problem
+  - Close to zero centered
+     
+##### **Disadvantages**
+  - Non differentiable in 0
+  - Non zero centerd
+    
+##### **Output**
+**Effect of Leaky Relu Activation Function***
+
+```
+def leaky(x):
+    return np.where(x > 0, x, 0.08 * x)
+x = np.linspace(-10, 10, 400)
+plot(leaky,x,'leaky relu')
+```
+
+![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/c4b98d95-1153-4405-a20a-cda8f9e38a26)
+
+#### *7. Elu(Exponential Linear Unit) Activation Function*
+
+The ELU function is an extension of the ReLU (Rectified Linear Unit) activation.
+It introduces an additional parameter alpha, which controls the smoothness of the function for negative inputs.
+ELU is similar to ReLU but with a smoother transition for negative values.
+
+##### **Advantages**
+  - Robustness
+  - Non-lineary
+  - Non-saturated
+  - Better Generalized
+  - Alwyes Continuous
+  - Avoids dying relu problem
+  - Close to zero centered
+     
+##### **Disadvantages**
+  - Non differentiable in 0
+  - Non zero centerd
+    
+##### **Output**
+**Effect of Elu Activation Function***
+
+```
+def elu(x):
+    return np.where(x > 0, x, 0.8*(np.exp(x)-1)) #alpha = 0.8
+x = np.linspace(-10, 10, 400)
+plot(elu,x,'elu')
+```
+
+![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/3daa2e88-9ab4-40e8-979d-af9b479a762d)
 
 
 ### All Content Credit:
