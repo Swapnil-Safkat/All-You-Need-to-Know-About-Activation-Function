@@ -161,3 +161,9 @@ plot(tanh,x,'tanh')
 ```
 
 ![image](https://github.com/Swapnil-Safkat/All-You-Need-to-Know-About-Activation-Function/assets/84597539/06516ed9-6dcb-4999-bdd1-7cafa2f929ba)
+
+
+### All Content Credit:
+1. https://github.com/BytesOfIntelligences
+2. https://www.youtube.com/@campusx-official
+3. https://github.com/alsani-ipe/Understanding-Activation-functions-in-Neural-Networks/tree/main
